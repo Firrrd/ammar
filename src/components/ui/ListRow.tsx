@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { LuChevronRight } from "react-icons/lu";
+import { NewTabHint } from "@/components/ui/NewTabHint";
 
 type ListRowProps = {
   /** The marker at the start of the row: a dot, a number or a monogram tile. */
@@ -92,6 +93,7 @@ export function ListRow({
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={`${layout} ${interactive}`}>
         {content}
+        <NewTabHint />
       </a>
     );
   }

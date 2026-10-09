@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+import { NewTabHint } from "@/components/ui/NewTabHint";
 
 type Variant = "outline" | "filled";
 
@@ -22,13 +23,17 @@ export function Button({ variant = "outline", className = "", ...props }: Button
 
   if (props.href !== undefined) {
     const external = /^https?:\/\//.test(props.href);
+    const { children, ...rest } = props;
     return (
       <a
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        {...props}
+        {...rest}
         className={classes}
-      />
+      >
+        {children}
+        {external && <NewTabHint />}
+      </a>
     );
   }
 

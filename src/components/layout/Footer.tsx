@@ -1,3 +1,4 @@
+import { NewTabHint } from "@/components/ui/NewTabHint";
 import { profile } from "@/content/profile";
 
 export function Footer() {
@@ -21,9 +22,11 @@ export function Footer() {
                   href={link.href}
                   target={opensNewTab ? "_blank" : undefined}
                   rel={opensNewTab ? "noopener noreferrer" : undefined}
-                  className="text-text-dim transition-colors hover:text-text-primary"
+                  // py-1 makes the tappable area at least 24px tall.
+                  className="inline-block py-1 text-text-dim transition-colors hover:text-text-primary"
                 >
                   {link.label}
+                  {opensNewTab && <NewTabHint />}
                 </a>
               </li>
             );

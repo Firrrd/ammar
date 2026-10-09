@@ -2,6 +2,7 @@ import type { IconType } from "react-icons";
 import { LuAward, LuBadgeCheck } from "react-icons/lu";
 import { cardInteractive, cardSurface } from "@/components/ui/card";
 import { Chip } from "@/components/ui/Chip";
+import { NewTabHint } from "@/components/ui/NewTabHint";
 import { formatAchievementDate } from "@/lib/content";
 import type { Achievement } from "@/types/content";
 
@@ -40,6 +41,7 @@ export function AchievementCard({ achievement }: { achievement: Achievement }) {
         // mt-auto keeps this line at the bottom, level across a row of cards.
         <span className="mt-auto pt-2 text-xs font-medium text-text-secondary transition-colors group-hover:text-text-primary">
           View credential ↗
+          <NewTabHint />
         </span>
       )}
     </>

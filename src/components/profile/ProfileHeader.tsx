@@ -30,6 +30,8 @@ export function ProfileHeader() {
               alt={profile.name}
               width={400}
               height={400}
+              // Its size on screen, so the browser fetches a small file, not a 400px one.
+              sizes="(min-width: 640px) 112px, 96px"
               loading="eager"
               className="h-24 w-24 rounded-full bg-surface object-cover ring-4 ring-bg sm:h-28 sm:w-28"
             />

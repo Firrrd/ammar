@@ -11,7 +11,8 @@ export function TabLink({ tab, children }: { tab: TabId; children: ReactNode }) 
     <button
       type="button"
       onClick={() => selectTab(tab)}
-      className="text-xs text-text-dim transition-colors hover:text-text-primary"
+      // py-1 makes the tappable area 24px tall; -my-1 stops that moving the heading.
+      className="-my-1 py-1 text-xs text-text-dim transition-colors hover:text-text-primary"
     >
       {children}
     </button>
