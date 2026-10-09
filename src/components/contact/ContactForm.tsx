@@ -14,8 +14,9 @@ import {
 // "sending" and "sent" at the same time.
 type Status = "idle" | "sending" | "sent" | "failed" | "not-configured";
 
+// text-base (16px): iOS Safari zooms the page when a field's text is smaller.
 const field =
-  "w-full rounded-lg border border-border bg-bg px-3.5 py-2.5 text-sm text-text-primary placeholder:text-text-dim transition-colors aria-[invalid=true]:border-red";
+  "w-full rounded-lg border border-border-strong bg-bg px-3.5 py-2.5 text-base text-text-primary placeholder:text-text-dim transition-colors aria-[invalid=true]:border-red";
 const label = "mb-1.5 block text-xs font-medium text-text-dim";
 
 function FieldError({ id, message }: { id: string; message?: string }) {

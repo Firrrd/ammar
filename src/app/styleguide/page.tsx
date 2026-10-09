@@ -30,10 +30,12 @@ const colours = [
   { token: "elevated", hex: "#172A46", swatch: "bg-elevated", use: "Row and button hover" },
   { token: "border", hex: "#1E3050", swatch: "bg-border", use: "Lines and outlines" },
   { token: "border-light", hex: "#2B4268", swatch: "bg-border-light", use: "Hover outlines" },
+  { token: "border-strong", hex: "#5A7096", swatch: "bg-border-strong", use: "Form field outlines" },
   { token: "text-primary", hex: "#F1F5F9", swatch: "bg-text-primary", use: "Name, titles, active tab" },
   { token: "text-secondary", hex: "#A9B8CE", swatch: "bg-text-secondary", use: "Paragraphs, button labels" },
   { token: "text-dim", hex: "#7F93B3", swatch: "bg-text-dim", use: "Labels, inactive tabs, hints" },
-  { token: "accent", hex: "#F7F7F7", swatch: "bg-accent", use: "Underline, // prefix, fills, focus" },  { token: "accent-dim", hex: "10% accent", swatch: "bg-accent-dim", use: "Tinted fills" },
+  { token: "accent", hex: "#F7F7F7", swatch: "bg-accent", use: "Underline, bullets, fills, focus" },
+  { token: "accent-dim", hex: "10% accent", swatch: "bg-accent-dim", use: "Tinted fills" },
   { token: "green", hex: "#4ADE80", swatch: "bg-green", use: "\"Completed\" dot" },
   { token: "amber", hex: "#FCBB00", swatch: "bg-amber", use: "\"In progress\" dot" },
 ];

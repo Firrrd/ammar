@@ -11,6 +11,7 @@
   --color-elevated: #172a46;
   --color-border: #1e3050;
   --color-border-light: #2b4268;
+  --color-border-strong: #5a7096;
   --color-text-primary: #f1f5f9;
   --color-text-secondary: #a9b8ce;
   --color-text-dim: #7f93b3;
@@ -66,6 +67,13 @@
   body {
     background-color: var(--color-bg);
     color: var(--color-text-secondary);
+  }
+
+  /* Tailwind v4 leaves buttons with the arrow cursor; show the hand on
+     anything clickable, as links already do. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 
   :focus-visible {

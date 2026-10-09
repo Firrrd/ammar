@@ -56,6 +56,16 @@ export function ProjectCard({ project, number, eager = false }: ProjectCardProps
             {project.title}
           </span>
           <StatusDot status={project.status} />
+          {/* In words too, so the status does not rest on the dot's colour.
+              Hidden from screen readers, which already get it from the dot. */}
+          {project.status === "in-progress" && (
+            <span
+              aria-hidden="true"
+              className="shrink-0 rounded border border-border-light px-1.5 text-[11px] text-text-dim"
+            >
+              In progress
+            </span>
+          )}
           {project.prototypeOnly && (
             <span className="rounded border border-border-light px-1.5 text-[11px] text-text-dim">
               Prototype

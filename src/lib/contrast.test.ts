@@ -82,3 +82,13 @@ describe("theme colours meet WCAG AA (4.5:1) for text", () => {
     expect(contrastRatio(tokens[text], tokens[background])).toBeGreaterThanOrEqual(AA);
   });
 });
+
+describe("form field outlines meet WCAG AA (3:1) for non-text", () => {
+  const tokens = readTokens();
+
+  // The outline has the field's fill (bg) inside it and the pop-up (surface) outside.
+  it.each(["bg", "surface"])("border-strong against %s", (neighbour) => {
+    expect(tokens["border-strong"], "token --color-border-strong not found").toBeDefined();
+    expect(contrastRatio(tokens["border-strong"], tokens[neighbour])).toBeGreaterThanOrEqual(3);
+  });
+});
