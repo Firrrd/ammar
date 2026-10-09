@@ -17,7 +17,7 @@ function Bullets({ items }: { items: string[] }) {
     <ul className="space-y-1.5">
       {items.map((item) => (
         <li key={item} className="flex gap-2 text-sm leading-relaxed">
-          <span aria-hidden="true" className="font-mono text-accent">
+          <span aria-hidden="true" className="text-accent">
             ›
           </span>
           {item}
@@ -94,7 +94,7 @@ export function OverviewTab() {
           <dl className="space-y-4">
             {skillGroups.map((group) => (
               <div key={group.label}>
-                <dt className="mb-1.5 font-mono text-[11px] text-text-dim">{group.label}</dt>
+                <dt className="mb-1.5 text-xs text-text-dim">{group.label}</dt>
                 <dd className="flex flex-wrap gap-1.5">
                   {group.skills.map((skill) => (
                     <Chip key={skill}>{skill}</Chip>
@@ -106,7 +106,7 @@ export function OverviewTab() {
         </section>
 
         <section>
-          <SectionHeading hint={<TabLink tab="achievement">view all →</TabLink>}>
+          <SectionHeading hint={<TabLink tab="achievement">View all →</TabLink>}>
             Latest
           </SectionHeading>
           <div>

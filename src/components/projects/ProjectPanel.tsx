@@ -49,7 +49,7 @@ export function ProjectPanelProvider({ children }: { children: ReactNode }) {
   return (
     <Context.Provider value={value}>
       {children}
-      <Modal open={open} onClose={close} label="Project details" title="~/projects">
+      <Modal open={open} onClose={close} label="Project details" title="Project">
         {project && <ProjectDetail project={project} />}
       </Modal>
     </Context.Provider>

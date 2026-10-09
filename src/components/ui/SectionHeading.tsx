@@ -9,14 +9,11 @@ type SectionHeadingProps = {
 export function SectionHeading({ children, hint }: SectionHeadingProps) {
   return (
     <div className="mb-3 flex items-baseline justify-between gap-4">
-      <h2 className="font-mono text-xs lowercase text-text-dim">
-        <span aria-hidden="true" className="text-accent">
-          {"// "}
-        </span>
+      <h2 className="text-xs font-medium uppercase tracking-[0.12em] text-text-dim">
         {children}
       </h2>
       {hint && (
-        <span className="font-mono text-[11px] text-text-dim">{hint}</span>
+        <span className="text-xs text-text-dim">{hint}</span>
       )}
     </div>
   );

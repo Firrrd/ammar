@@ -32,7 +32,7 @@ export function Highlights() {
           lead={<StatusDot status={featured.status} />}
           title={featured.title}
           sub={featured.description}
-          meta="featured"
+          meta="Featured"
           onClick={() => openProject(featured.id)}
         />
       )}
@@ -40,13 +40,13 @@ export function Highlights() {
         lead={<Dot />}
         title={`CGPA ${profile.cgpa}`}
         sub={`${current.programme} · ${current.institution}`}
-        meta="education"
+        meta="Education"
       />
       <ListRow
         lead={<Dot />}
         title={`${awsCount} AWS certifications`}
         sub="Cloud, Machine Learning and Generative AI foundations"
-        meta="achievement"
+        meta="Achievement"
         onClick={() => selectTab("achievement")}
       />
     </div>

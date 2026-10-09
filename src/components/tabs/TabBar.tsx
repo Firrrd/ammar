@@ -75,7 +75,7 @@ export function TabBar({ activeTab, onSelect }: TabBarProps) {
               // Only the active tab is a Tab-key stop; arrows move between tabs.
               tabIndex={selected ? 0 : -1}
               onClick={() => onSelect(tab.id)}
-              className={`shrink-0 whitespace-nowrap px-3.5 py-3 font-mono text-[12.5px] lowercase transition-colors first:-ml-3.5 ${
+              className={`shrink-0 whitespace-nowrap px-3.5 py-3 text-sm transition-colors first:-ml-3.5 ${
                 selected
                   ? "font-medium text-text-primary"
                   : "text-text-dim hover:text-text-secondary"

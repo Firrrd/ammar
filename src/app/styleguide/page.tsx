@@ -65,10 +65,10 @@ export default function StyleGuide() {
                 className={`h-10 w-10 shrink-0 rounded-md border border-border-light ${colour.swatch}`}
               />
               <span className="min-w-0">
-                <span className="block font-mono text-xs text-text-primary">
+                <span className="block text-xs text-text-primary">
                   {colour.token}
                 </span>
-                <span className="block font-mono text-[11px] text-text-dim">
+                <span className="block text-[11px] text-text-dim">
                   {colour.hex}
                 </span>
                 <span className="block truncate text-[13px]">{colour.use}</span>
@@ -79,10 +79,10 @@ export default function StyleGuide() {
       </section>
 
       <section>
-        <SectionHeading hint="2 families">Type</SectionHeading>
+        <SectionHeading hint="1 family">Type</SectionHeading>
         <div className="space-y-4">
           <p className="text-4xl font-bold text-text-primary">Ammar Firdaus</p>
-          <p className="font-mono text-xs text-text-dim">
+          <p className="text-xs text-text-dim">
             name · Geist bold, 36px on desktop (28px on mobile)
           </p>
           <p className="max-w-[75ch] text-[15px] leading-relaxed">
@@ -94,12 +94,8 @@ export default function StyleGuide() {
             Row title, 15px medium
           </p>
           <p className="text-[13px] text-text-dim">Row subtitle, 13px dim</p>
-          <p className="font-mono text-[12.5px] lowercase text-text-primary">
-            overview · projects · achievement
-          </p>
-          <p className="font-mono text-xs text-text-dim">
-            tabs and labels · JetBrains Mono, 11–12.5px
-          </p>
+          <p className="text-sm text-text-primary">Overview · Projects · Achievement</p>
+          <p className="text-xs text-text-dim">tabs and labels · Geist, 12–14px</p>
           <p className="text-2xl font-bold tabular-nums text-text-primary">
             3.93 · 5 · 6
           </p>
@@ -170,9 +166,9 @@ export default function StyleGuide() {
         <SectionHeading hint="read from src/content">Content (Feature 2)</SectionHeading>
         <div className="grid gap-3 lg:grid-cols-3">
           <div className="rounded-lg border border-border bg-surface p-4">
-            <p className="font-mono text-xs text-text-dim">profile</p>
+            <p className="text-xs text-text-dim">profile</p>
             <p className="mt-2 font-medium text-text-primary">
-              {profile.name} <span className="font-mono text-xs text-text-dim">{profile.handle}</span>
+              {profile.name} <span className="text-xs text-text-dim">{profile.handle}</span>
             </p>
             <p className="mt-2 text-[13px]">
               {stats.map((stat) => `${stat.value} ${stat.label}`).join(" · ")}
@@ -187,13 +183,13 @@ export default function StyleGuide() {
           </div>
 
           <div className="rounded-lg border border-border bg-surface p-4">
-            <p className="font-mono text-xs text-text-dim">
+            <p className="text-xs text-text-dim">
               projects · {projects.length}
             </p>
             <ul className="mt-2 space-y-1.5">
               {projects.map((project, index) => (
                 <li key={project.id} className="flex items-center gap-2 text-[13px]">
-                  <span className="font-mono text-[11px] text-text-dim">
+                  <span className="text-[11px] text-text-dim">
                     {projectNumber(index)}
                   </span>
                   <span
@@ -209,17 +205,17 @@ export default function StyleGuide() {
           </div>
 
           <div className="rounded-lg border border-border bg-surface p-4">
-            <p className="font-mono text-xs text-text-dim">
+            <p className="text-xs text-text-dim">
               achievements · {achievements.length}
             </p>
             {groupAchievementsByYear(achievements).map((group) => (
               <div key={group.year} className="mt-2">
-                <p className="font-mono text-[11px] text-text-dim">{group.year}</p>
+                <p className="text-[11px] text-text-dim">{group.year}</p>
                 <ul className="space-y-1">
                   {group.items.map((item) => (
                     <li key={item.id} className="flex justify-between gap-3 text-[13px]">
                       <span className="truncate text-text-primary">{item.title}</span>
-                      <span className="shrink-0 font-mono text-[11px] text-text-dim">
+                      <span className="shrink-0 text-[11px] text-text-dim">
                         {formatAchievementDate(item.date)}
                       </span>
                     </li>

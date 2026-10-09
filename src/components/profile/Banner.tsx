@@ -31,11 +31,8 @@ export function Banner() {
 
       {/* Top-aligned on phones, where the avatar covers the bottom-left corner. */}
       <div className="relative flex h-full flex-col justify-start pt-4 px-page sm:justify-center sm:pb-8 sm:pt-0">
-        <p className="font-mono text-[11px] lowercase text-bg/70 sm:text-xs">
-          <span aria-hidden="true" className="text-bg">
-            {"// "}
-          </span>
-          welcome
+        <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-bg/70 sm:text-xs">
+          To nakama
         </p>
         <Greeting phrases={profile.greetings} />
       </div>

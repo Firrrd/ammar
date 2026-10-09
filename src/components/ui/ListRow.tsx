@@ -57,7 +57,7 @@ export function ListRow({
         {sub && <span className="block truncate text-[13px] text-text-dim">{sub}</span>}
       </span>
       {meta && (
-        <span className="hidden shrink-0 font-mono text-[11px] text-text-dim sm:block">{meta}</span>
+        <span className="hidden shrink-0 text-xs tabular-nums text-text-dim sm:block">{meta}</span>
       )}
       {isInteractive && (
         <LuChevronRight

@@ -10,7 +10,7 @@ export function MonogramTile({ children, current = false }: MonogramTileProps) {
   return (
     <span
       aria-hidden="true"
-      className={`block h-8 w-8 rounded-md border border-border bg-surface text-center font-mono text-[11px] leading-8 ${
+      className={`block h-8 w-8 rounded-md border border-border bg-surface text-center text-[11px] font-medium leading-8 ${
         current ? "text-text-primary" : "text-text-dim"
       }`}
     >

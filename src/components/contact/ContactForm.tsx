@@ -16,7 +16,7 @@ type Status = "idle" | "sending" | "sent" | "failed" | "not-configured";
 
 const field =
   "w-full rounded-lg border border-border bg-bg px-3.5 py-2.5 text-sm text-text-primary placeholder:text-text-dim transition-colors aria-[invalid=true]:border-red";
-const label = "mb-1.5 block font-mono text-[11px] text-text-dim";
+const label = "mb-1.5 block text-xs font-medium text-text-dim";
 
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
@@ -74,7 +74,7 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
   if (status === "sent") {
     return (
       <div role="status" className="rounded-lg border border-border p-6 text-center">
-        <p className="font-mono text-sm text-green">message sent</p>
+        <p className="text-sm font-medium text-green">Message sent</p>
         <p className="mt-1 text-sm">Thanks, I&apos;ll get back to you soon.</p>
         <button
           type="button"
@@ -107,7 +107,7 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="contact-name" className={label}>
-            name
+            Name
           </label>
           <input
             id="contact-name"
@@ -124,7 +124,7 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
         </div>
         <div>
           <label htmlFor="contact-email" className={label}>
-            email
+            Email
           </label>
           <input
             id="contact-email"
@@ -143,7 +143,7 @@ export function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
 
       <div>
         <label htmlFor="contact-message" className={label}>
-          message
+          Message
         </label>
         <textarea
           id="contact-message"

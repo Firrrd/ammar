@@ -11,7 +11,7 @@ export function TabLink({ tab, children }: { tab: TabId; children: ReactNode }) 
     <button
       type="button"
       onClick={() => selectTab(tab)}
-      className="font-mono text-[11px] text-text-dim transition-colors hover:text-text-primary"
+      className="text-xs text-text-dim transition-colors hover:text-text-primary"
     >
       {children}
     </button>

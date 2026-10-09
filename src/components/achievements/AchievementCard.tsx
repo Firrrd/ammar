@@ -15,8 +15,8 @@ export function AchievementCard({ achievement }: { achievement: Achievement }) {
 
   const content = (
     <>
-      <span className="flex items-center justify-between gap-3 font-mono text-[11px] text-text-dim">
-        <span className="flex items-center gap-1.5 lowercase">
+      <span className="flex items-center justify-between gap-3 text-xs text-text-dim">
+        <span className="flex items-center gap-1.5">
           <Icon aria-hidden="true" className="h-3.5 w-3.5" />
           {achievement.type}
         </span>
@@ -38,7 +38,7 @@ export function AchievementCard({ achievement }: { achievement: Achievement }) {
 
       {achievement.url && (
         // mt-auto keeps this line at the bottom, level across a row of cards.
-        <span className="mt-auto pt-2 font-mono text-[11px] text-text-secondary transition-colors group-hover:text-text-primary">
+        <span className="mt-auto pt-2 text-xs font-medium text-text-secondary transition-colors group-hover:text-text-primary">
           View credential ↗
         </span>
       )}

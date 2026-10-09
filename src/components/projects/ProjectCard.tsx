@@ -51,14 +51,14 @@ export function ProjectCard({ project, number, eager = false }: ProjectCardProps
 
       <span className="flex flex-1 flex-col gap-2 p-4">
         <span className="flex items-center gap-2">
-          <span className="font-mono text-[11px] text-text-dim">{number}</span>
+          <span className="text-xs tabular-nums text-text-dim">{number}</span>
           <span className="truncate text-[15px] font-medium text-text-primary">
             {project.title}
           </span>
           <StatusDot status={project.status} />
           {project.prototypeOnly && (
-            <span className="rounded border border-border-light px-1.5 font-mono text-[10px] text-text-dim">
-              prototype
+            <span className="rounded border border-border-light px-1.5 text-[11px] text-text-dim">
+              Prototype
             </span>
           )}
         </span>
@@ -77,7 +77,7 @@ export function ProjectCard({ project, number, eager = false }: ProjectCardProps
             <Chip key={technology}>{technology}</Chip>
           ))}
           {hiddenChips > 0 && (
-            <span className="font-mono text-[11px] text-text-dim">+{hiddenChips}</span>
+            <span className="text-xs text-text-dim">+{hiddenChips}</span>
           )}
         </span>
       </span>

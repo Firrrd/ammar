@@ -14,7 +14,7 @@ export function AchievementTab() {
           <section key={group.year} aria-labelledby={`year-${group.year}`}>
             <h3
               id={`year-${group.year}`}
-              className="mb-3 flex items-center gap-3 font-mono text-xs text-text-secondary"
+              className="mb-3 flex items-center gap-3 text-[13px] font-medium tabular-nums text-text-secondary"
             >
               {group.year}
               {/* A line running from the year to the right edge. */}

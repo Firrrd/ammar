@@ -43,12 +43,11 @@
 }
 
 /*
-  "inline" because these point at variables that next/font sets on <html>
-  (see layout.tsx), so they must be resolved where they are used.
+  "inline" because this points at a variable that next/font sets on <html>
+  (see layout.tsx), so it must be resolved where it is used.
 */
 @theme inline {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 @layer base {

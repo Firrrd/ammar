@@ -8,7 +8,7 @@ type ButtonProps = { variant?: Variant } & (
 );
 
 const base =
-  "slide-btn inline-flex h-8 items-center gap-2 rounded-md border px-3 font-mono text-xs transition duration-300 active:scale-[0.96] active:duration-75 disabled:pointer-events-none disabled:opacity-50";
+  "slide-btn inline-flex h-8 items-center gap-2 rounded-md border px-3 text-[13px] transition duration-300 active:scale-[0.96] active:duration-75 disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
   outline:

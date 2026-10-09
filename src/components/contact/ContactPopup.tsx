@@ -50,7 +50,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
         <ContactForm fallbackEmail={email} />
 
         <div className="mt-6 border-t border-border pt-4">
-          <p className="mb-2 font-mono text-[11px] text-text-dim">or reach me directly</p>
+          <p className="mb-2 text-xs text-text-dim">Or reach me directly</p>
           <div className="flex flex-wrap gap-2">
             <CopyEmailButton email={email} />
             {otherLinks.map((link) => {

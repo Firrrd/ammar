@@ -25,13 +25,12 @@ export function Greeting({ phrases }: { phrases: readonly string[] }) {
     // On phones the text size follows the screen width (4.4vw, capped at 18px),
     // so a greeting of up to 32 characters stays on one line on any phone and
     // never wraps down onto the avatar. A test enforces the 32.
-    <p className="mt-1 min-h-[1.4em] whitespace-nowrap font-mono text-[min(1.125rem,4.4vw)] leading-snug sm:text-3xl lg:text-4xl">
+    <p className="mt-1 min-h-[1.4em] whitespace-nowrap text-[min(1.125rem,4.4vw)] font-semibold leading-snug tracking-tight sm:text-3xl lg:text-4xl">
       {/* Screen readers get the greeting once, in full, instead of letter by letter. */}
       <span className="sr-only">{phrases.join(" ")}</span>
       <span aria-hidden="true">
-        <span className="opacity-50">&gt; </span>
         {text}
-        <span className="caret ml-0.5 inline-block h-[1em] w-[0.5em] translate-y-[0.12em] bg-current" />
+        <span className="caret ml-0.5 inline-block h-[1em] w-0.5 translate-y-[0.12em] bg-current" />
       </span>
     </p>
   );

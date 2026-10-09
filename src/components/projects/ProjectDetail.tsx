@@ -7,7 +7,7 @@ import type { Project } from "@/types/content";
 
 function SubHeading({ children }: { children: string }) {
   return (
-    <h3 className="mb-2 mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-text-dim">
+    <h3 className="mb-2 mt-6 text-xs font-medium uppercase tracking-[0.12em] text-text-dim">
       {children}
     </h3>
   );
@@ -18,7 +18,7 @@ function BulletList({ items }: { items: string[] }) {
     <ul className="space-y-1.5">
       {items.map((item) => (
         <li key={item} className="flex gap-2 text-sm leading-relaxed">
-          <span aria-hidden="true" className="font-mono text-accent">
+          <span aria-hidden="true" className="text-accent">
             ›
           </span>
           {item}
@@ -47,10 +47,10 @@ export function ProjectDetail({ project }: { project: Project }) {
         </div>
       )}
 
-      <p className="flex flex-wrap items-center gap-2 font-mono text-[11px] text-text-dim">
+      <p className="flex flex-wrap items-center gap-2 text-xs text-text-dim">
         <StatusDot status={project.status} />
-        {project.status === "completed" ? "completed" : "in progress"} · {project.category}
-        {project.prototypeOnly && " · prototype only"}
+        {project.status === "completed" ? "Completed" : "In progress"} · {project.category}
+        {project.prototypeOnly && " · Prototype only"}
       </p>
 
       <h2 className="mt-2 text-xl font-semibold tracking-tight text-text-primary">

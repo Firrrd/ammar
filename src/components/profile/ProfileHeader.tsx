@@ -48,7 +48,7 @@ export function ProfileHeader() {
             >
               {profile.name}
             </h1>
-            <p className="font-mono text-xs text-text-dim">
+            <p className="text-[13px] text-text-dim">
               {profile.handle}
               {profile.status && (
                 <>

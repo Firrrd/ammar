@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import { ContactProvider } from "@/components/contact/ContactPopup";
 import { Footer } from "@/components/layout/Footer";
 import { TopBar } from "@/components/layout/TopBar";
@@ -8,11 +8,6 @@ import "./globals.css";
 
 const geist = Geist({
   variable: "--font-geist",
-  subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
@@ -25,7 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${geist.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <ContactProvider>

@@ -1,7 +1,7 @@
 export const TABS = [
-  { id: "overview", label: "overview" },
-  { id: "projects", label: "projects" },
-  { id: "achievement", label: "achievement" },
+  { id: "overview", label: "Overview" },
+  { id: "projects", label: "Projects" },
+  { id: "achievement", label: "Achievement" },
 ] as const;
 
 export type TabId = (typeof TABS)[number]["id"];

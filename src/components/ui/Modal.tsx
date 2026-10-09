@@ -8,7 +8,7 @@ type ModalProps = {
   onClose: () => void;
   /** The pop-up's name for screen readers, e.g. "Contact". Never shown on screen. */
   label: string;
-  /** Optional text for a header strip, e.g. "~/projects". Without it there is no strip, only the close button. */
+  /** Optional text for a header strip, e.g. "Project". Without it there is no strip, only the close button. */
   title?: string;
   /** "side": a panel from the right (a bottom sheet on phones). "center": a centred box. */
   variant?: "side" | "center";
@@ -70,7 +70,7 @@ export function Modal({ open, onClose, label, title, variant = "side", children 
     >
       {title ? (
         <div className="flex shrink-0 items-center justify-between border-b border-border px-5 py-3">
-          <p className="truncate font-mono text-xs text-text-dim">{title}</p>
+          <p className="truncate text-xs font-medium uppercase tracking-[0.12em] text-text-dim">{title}</p>
           {closeButton}
         </div>
       ) : (
