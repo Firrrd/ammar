@@ -10,7 +10,13 @@
  *
  * 2. Avatar: the source is a tall selfie. It is cropped to a square around
  *    the face, so the round avatar shows the face instead of the background.
+ *
+ * 3. Icons: Ammar's favicon files (cream artwork on a transparent
+ *    background, kept transparent at his request) are copied, unchanged, to
+ *    the names Next.js looks for in src/app/. It finds them by file name
+ *    and adds the <link> tags itself.
  */
+import { copyFile } from "node:fs/promises";
 import sharp from "sharp";
 
 // The site's accent colour (--color-accent in globals.css).
@@ -62,3 +68,13 @@ const avatar = await sharp("assets/avatar.jpg")
   .toFile("public/avatar.jpg");
 
 console.log(`assets/avatar.jpg -> public/avatar.jpg (${avatar.width}x${avatar.height})`);
+
+const icons = [
+  { input: "assets/favicon-512x512.png", output: "src/app/icon.png" }, // browser tabs
+  { input: "assets/favicon-180x180.png", output: "src/app/apple-icon.png" }, // iPhone home screen
+];
+
+for (const { input, output } of icons) {
+  await copyFile(input, output);
+  console.log(`${input} -> ${output}`);
+}
