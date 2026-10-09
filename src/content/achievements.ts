@@ -1,0 +1,73 @@
+import type { Achievement } from "@/types/content";
+
+/** Newest first. */
+export const achievements: Achievement[] = [
+  {
+    id: "aws-ml-foundations",
+    title: "AWS Academy Graduate – Machine Learning Foundations",
+    type: "Certification",
+    issuer: "Amazon Web Services",
+    date: "2026-03",
+    skills: ["Machine Learning"],
+    url: "https://www.credly.com/badges/446bd131-f6b2-43b6-a32e-0ebe32e00e97/public_url",
+  },
+  {
+    id: "aws-genai-foundations",
+    title: "AWS Academy Graduate – Generative AI Foundations",
+    type: "Certification",
+    issuer: "Amazon Web Services",
+    date: "2026-02",
+    skills: [
+      "Artificial Intelligence",
+      "Generative AI",
+      "Prompt Engineering",
+      "AI Use Cases",
+      "Foundation Model",
+    ],
+    url: "https://www.credly.com/badges/7235176e-15f9-4fe0-bb8d-24e16defcde7/public_url",
+  },
+  {
+    id: "aws-cloud-foundations",
+    title: "AWS Academy Graduate – Cloud Foundations",
+    type: "Certification",
+    issuer: "Amazon Web Services",
+    date: "2026-01",
+    skills: ["AWS", "AWS Cloud", "AWS Core Services", "AWS Architecture"],
+    url: "https://www.credly.com/badges/e75da7f9-5eea-4ff6-9966-8701149b219f/public_url",
+  },
+  {
+    id: "icdl-teamwork",
+    title: "ICDL Teamwork",
+    type: "Certification",
+    issuer: "ICDL Asia",
+    date: "2025-03",
+    skills: ["Teamwork", "Microsoft Teams"],
+    url: "https://profile.icdlasia.org/1321e240-c7a2-4021-a771-32b376270e89#acc.xdGMDPAW",
+  },
+  {
+    id: "icdl-spreadsheets",
+    title: "ICDL Spreadsheets",
+    type: "Certification",
+    issuer: "ICDL Asia",
+    date: "2025-03",
+    skills: ["Spreadsheets", "Microsoft Excel", "Google Sheets"],
+    url: "https://profile.icdlasia.org/48eb40a3-d40a-4859-b1b4-287ff9358b8b",
+  },
+  {
+    id: "icdl-documents",
+    title: "ICDL Documents",
+    type: "Certification",
+    issuer: "ICDL Asia",
+    date: "2025-03",
+    skills: ["Documents", "Microsoft Word", "Google Docs"],
+    url: "https://profile.icdlasia.org/1fcd6409-4e12-4031-906a-ea25dec54b1c",
+  },
+  {
+    id: "uitm-top-10",
+    title: "Top 10% Foundation in Engineering Student, Semester 1 & 2",
+    type: "Award",
+    issuer: "Universiti Teknologi MARA",
+    date: "2023",
+    skills: [],
+  },
+];

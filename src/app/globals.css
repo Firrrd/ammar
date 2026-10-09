@@ -1,0 +1,357 @@
+@import "tailwindcss";
+
+/*
+  Design tokens (SPEC.md section 8).
+  Every --color-* below becomes a set of utilities: --color-surface gives
+  bg-surface, text-surface, border-surface and so on.
+*/
+@theme {
+  --color-bg: #0a1628;
+  --color-surface: #0f1e36;
+  --color-elevated: #172a46;
+  --color-border: #1e3050;
+  --color-border-light: #2b4268;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #a9b8ce;
+  --color-text-dim: #7f93b3;
+  --color-accent: #f7f7f7;
+  --color-accent-dim: rgb(247 247 247 / 0.1);
+  --color-green: #4ade80;
+  --color-amber: #fcbb00;
+  --color-red: #ff8a8a;
+
+  /* Breakpoints from SPEC.md section 9. sm (640px) and lg (1024px) are Tailwind's defaults. */
+  --breakpoint-2xl: 90rem; /* 1440px */
+  --breakpoint-3xl: 120rem; /* 1920px */
+}
+
+/*
+  The site's side padding: 16px on phones, 32px on tablets, 48px on desktop,
+  64px on very wide screens. Every full-width band uses this one class, so
+  their edges always line up.
+*/
+@utility px-page {
+  @apply px-4 sm:px-8 lg:px-12 3xl:px-16;
+}
+
+/* Lets a row scroll sideways without showing a scrollbar (the tab bar on narrow phones). */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+  "inline" because these point at variables that next/font sets on <html>
+  (see layout.tsx), so they must be resolved where they are used.
+*/
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    /* Always reserve the scrollbar's space, so locking scroll behind a
+       pop-up does not make the page jump sideways. */
+    scrollbar-gutter: stable;
+  }
+
+  /* While any pop-up is open, the page behind it does not scroll. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-secondary);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+}
+
+@layer components {
+  /*
+    Profile banner (Banner.tsx): three layers under the greeting. The banner
+    is light (off-white with navy text), so the layers are drawn in faint navy.
+  */
+
+  /* Selected text elsewhere is off-white on navy; here that would be
+     invisible, so the banner swaps it. */
+  .banner ::selection {
+    background-color: var(--color-bg);
+    color: var(--color-accent);
+  }
+
+  /* 1. A dot grid sliding diagonally. It moves by exactly one grid square
+        (20px) per loop, so the end lines up with the start and it never jumps. */
+  .banner-dots {
+    background-image: radial-gradient(circle, rgb(10 22 40 / 0.22) 1px, transparent 1.5px);
+    background-size: 20px 20px;
+    animation: banner-drift 6s linear infinite;
+  }
+
+  /* 2. A large soft shade that wanders slowly, back and forth. */
+  .banner-glow {
+    top: -60%;
+    right: -10%;
+    width: 60%;
+    height: 220%;
+    background: radial-gradient(closest-side, rgb(10 22 40 / 0.1), transparent);
+    animation: banner-float 16s ease-in-out infinite alternate;
+  }
+
+  /* 3. A shade under the cursor. Banner.tsx sets --spot-x and --spot-y.
+        Only on devices with a mouse, and only while it is over the banner. */
+  .banner-spot {
+    background: radial-gradient(
+      220px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgb(10 22 40 / 0.12),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 400ms ease-out;
+  }
+
+  @media (hover: hover) {
+    .banner:hover .banner-spot {
+      opacity: 1;
+    }
+  }
+
+  /* The blinking block after the typed greeting. steps(1) makes it snap on
+     and off like a terminal cursor instead of fading. */
+  .caret {
+    animation: caret-blink 1s steps(1) infinite;
+  }
+
+  /*
+    Entrance for the profile block. Each element sets --i (0, 1, 2, ...) and
+    starts 70ms after the one before. "both" keeps it invisible until its
+    turn, and at its final position afterwards.
+  */
+  .rise-in {
+    animation: rise-in 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+
+  /* A tab's content, each time the tab changes. */
+  .panel-in {
+    animation: panel-in 300ms ease-out both;
+  }
+
+  /*
+    Button hover effect: a coloured layer slides up from the bottom edge.
+    The colour comes from --slide-bg, which each button variant sets.
+  */
+  .slide-btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .slide-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--slide-bg);
+    transform: translateY(101%);
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /*
+    Keyboard focus always shows the fill. Hover only does on devices with a
+    real pointer: touch screens keep a lingering "hover" after a tap, and
+    Tailwind's hover: colour classes (which the fill relies on) are switched
+    off there, so the fill would hide the label.
+  */
+  .slide-btn:focus-visible::before {
+    transform: translateY(0);
+  }
+
+  @media (hover: hover) {
+    .slide-btn:hover::before {
+      transform: translateY(0);
+    }
+  }
+}
+
+/*
+  Pop-ups (Modal.tsx), built on the browser's <dialog> element.
+
+  A closed <dialog> is display: none, which normally cannot be animated.
+  Two newer CSS features make it possible:
+    - "allow-discrete" lets display (and the top-layer "overlay") wait
+      for the other transitions to finish before switching off;
+    - "@starting-style" gives the state to animate from when the
+      dialog first appears.
+*/
+@layer components {
+  .modal {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    border: 0 solid var(--color-border);
+    max-width: none;
+    max-height: none;
+    overflow: hidden;
+    background-color: var(--color-surface);
+    color: var(--color-text-secondary);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+    opacity: 0;
+    transition:
+      transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 300ms ease-out,
+      display 300ms allow-discrete,
+      overlay 300ms allow-discrete;
+  }
+
+  /* display is set only while open: an author rule for .modal itself
+     would override the browser's "closed dialogs are hidden" rule. */
+  .modal[open] {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: none;
+  }
+
+  .modal::backdrop {
+    background-color: rgb(0 0 0 / 0);
+    transition:
+      background-color 300ms ease-out,
+      display 300ms allow-discrete,
+      overlay 300ms allow-discrete;
+  }
+
+  .modal[open]::backdrop {
+    background-color: rgb(0 0 0 / 0.6);
+    backdrop-filter: blur(2px);
+  }
+
+  @starting-style {
+    .modal[open]::backdrop {
+      background-color: rgb(0 0 0 / 0);
+    }
+  }
+
+  /* Side panel. On phones: a sheet rising from the bottom edge. */
+  .modal-side {
+    inset: auto 0 0 0;
+    width: 100%;
+    max-height: 88dvh;
+    border-top-width: 1px;
+    border-radius: 1rem 1rem 0 0;
+    transform: translateY(100%);
+  }
+
+  @starting-style {
+    .modal-side[open] {
+      transform: translateY(100%);
+    }
+  }
+
+  /*
+    From tablet width up: a 480px panel sliding in from the right.
+
+    The page reserves a strip for its scrollbar (scrollbar-gutter above), and
+    the panel is positioned inside that strip, which would leave a dark gap
+    between the panel and the window edge. So the panel is made 20px wider
+    than its 480px of content and shifted 20px right: its background covers
+    the strip, and on screens with no strip the extra is simply off-screen.
+  */
+  @media (width >= 40rem) {
+    .modal-side {
+      inset: 0 -20px 0 auto;
+      width: 500px;
+      padding-right: 20px;
+      height: 100dvh;
+      max-height: none;
+      border-top-width: 0;
+      border-left-width: 1px;
+      border-radius: 0;
+      transform: translateX(100%);
+    }
+
+    @starting-style {
+      .modal-side[open] {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  /* Centred pop-up (the contact pop-up in Feature 10). */
+  .modal-center {
+    inset: 50% auto auto 50%;
+    width: calc(100% - 2rem);
+    max-width: 32rem;
+    max-height: calc(100dvh - 2rem);
+    border-width: 1px;
+    border-radius: 1rem;
+    transform: translate(-50%, -48%) scale(0.97);
+  }
+
+  .modal-center[open] {
+    transform: translate(-50%, -50%);
+  }
+
+  @starting-style {
+    .modal-center[open] {
+      opacity: 0;
+      transform: translate(-50%, -48%) scale(0.97);
+    }
+  }
+}
+
+@keyframes banner-drift {
+  to {
+    background-position: 20px 20px;
+  }
+}
+
+@keyframes banner-float {
+  to {
+    transform: translate(-45%, 12%) scale(1.15);
+  }
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
