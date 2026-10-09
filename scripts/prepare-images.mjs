@@ -16,6 +16,7 @@
  *    the names Next.js looks for in src/app/. It finds them by file name
  *    and adds the <link> tags itself.
  */
+import { existsSync } from "node:fs";
 import { copyFile } from "node:fs/promises";
 import sharp from "sharp";
 
@@ -61,13 +62,19 @@ for (const { input, output, height } of logos) {
 // Square around the face in the 608x1080 original, in pixels.
 const AVATAR_CROP = { left: 70, top: 365, width: 470, height: 470 };
 
-const avatar = await sharp("assets/avatar.jpg")
-  .extract(AVATAR_CROP)
-  .resize(400, 400)
-  .jpeg({ quality: 85, mozjpeg: true })
-  .toFile("public/avatar.jpg");
+// The uncropped original is private and not in git, so a fresh copy of the
+// project will not have it. The cropped public/avatar.jpg is in git already.
+if (existsSync("assets/avatar.jpg")) {
+  const avatar = await sharp("assets/avatar.jpg")
+    .extract(AVATAR_CROP)
+    .resize(400, 400)
+    .jpeg({ quality: 85, mozjpeg: true })
+    .toFile("public/avatar.jpg");
 
-console.log(`assets/avatar.jpg -> public/avatar.jpg (${avatar.width}x${avatar.height})`);
+  console.log(`assets/avatar.jpg -> public/avatar.jpg (${avatar.width}x${avatar.height})`);
+} else {
+  console.log("assets/avatar.jpg not found; keeping the existing public/avatar.jpg");
+}
 
 const icons = [
   { input: "assets/favicon-512x512.png", output: "src/app/icon.png" }, // browser tabs
