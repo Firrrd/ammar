@@ -34,6 +34,80 @@ export const projects: Project[] = [
     repositoryUrl: "https://github.com/Firrrd/Stella_studybuddy",
   },
   {
+    id: "spotential",
+    image: "/projects/spotential.png",
+    title: "Spotential",
+    role: "Chief Financial Officer",
+    context: "CIC Asia 2026 (Convergence Innovation Competition)",
+    period: "Aug 2026 – Sep 2026",
+    category: "Hackathon",
+    status: "completed",
+    description:
+      "Location intelligence for Malaysian MSMEs. Drop a pin and pick a business type to get a scored analysis of the site before signing a lease: who you would compete with, how many people live within walking distance and what the rent means for break-even.",
+    highlights: [
+      "Worked on the business model and pricing: a free tier, a Pro subscription and a flat listing fee for event organisers, earning from subscriptions and credit-based usage",
+      "Researched the Malaysian MSME market from DOSM figures on business share, contribution to GDP and five-year survival",
+      "Location analysis across 15 business categories in F&B, retail and services, with a Success Score over five dimensions and every figure traced to its source",
+      "Walk-in catchment measured from a 400 m population grid, competitor analysis from Google Places and per-district rent benchmarks",
+      "Side-by-side comparison of two or three sites, and a what-if simulator for revenue, profit, break-even and the cash needed before opening",
+      "The AI never does arithmetic: Gemini turns questions into parameter changes, a deterministic engine computes every number, and answers citing figures not on the page are refused",
+    ],
+    technologies: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Fastify",
+      "Google Cloud Run",
+      "Firestore",
+      "Google Maps Platform",
+      "Gemini",
+    ],
+    team: "Team of four",
+    sections: [
+      {
+        title: "Problem",
+        items: [
+          "Opening a shop in Malaysia usually comes down to instinct and a walk around the neighbourhood.",
+          "The data that would answer \"is this a good spot?\" (census figures, competitor density, rents) is scattered across government portals, mapping services and PDF reports.",
+        ],
+      },
+      {
+        title: "Market",
+        items: [
+          "96% of all businesses in Malaysia are MSMEs, providing 48.7% of jobs (DOSM, MSME Performance 2025)",
+          "MSMEs contribute 39.5% of GDP, RM652.4 billion in 2024 (DOSM, MSME Performance 2024)",
+          "28,294 enterprises closed in 2024, and only 69.9% survive five years (DOSM, Business Demography 2024)",
+          "30 to 35% of new F&B ventures close within 12 to 18 months (MFBEA, Retail Group Malaysia)",
+        ],
+      },
+      {
+        title: "Business model",
+        items: [
+          "Free: 3 analyses, 3 PDF downloads and 3 AI answers, for trying one location",
+          "Pro, $17.99 a month: unlimited analyses and PDFs, plus comparisons, the simulator and the heatmap",
+          "Event listing, $6.99 per event: organisers' bazaars and expos shown to nearby businesses",
+          "Revenue from tiered subscriptions and credit-based usage",
+        ],
+      },
+      {
+        title: "Validation",
+        items: [
+          "Tested with a student entrepreneur, a restaurant owner and small business owners",
+        ],
+      },
+      {
+        title: "Stated limits",
+        items: [
+          "The Success Score is a comparison aid and has not been validated against real business outcomes",
+          "Projections from stated inputs, not financial advice",
+        ],
+      },
+    ],
+    repositoryUrl: "https://github.com/HAIZ4D/spotential",
+    liveUrl: "https://spotential-app.web.app",
+    videoUrl: "https://www.youtube.com/watch?v=ojN8QHzWbfw",
+  },
+  {
     id: "squadview",
     image: "/projects/squadview.png",
     title: "SquadView",

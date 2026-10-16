@@ -18,9 +18,10 @@ function expectUnique(values: string[]) {
 }
 
 describe("projects", () => {
-  it("lists exactly the five agreed projects, newest first", () => {
+  it("lists exactly the six agreed projects, newest first", () => {
     expect(projects.map((p) => p.title)).toEqual([
       "Stella_studybuddy",
+      "Spotential",
       "SquadView",
       "Scrap2Go",
       "ReFeed",
@@ -94,6 +95,12 @@ describe("projects", () => {
     expect(getProjectLinks(p).map((link) => link.label)).toEqual(["View prototype"]);
   });
 
+  it("does not claim Ammar wrote Spotential's code (he was CFO)", () => {
+    const p = projects.find((p) => p.id === "spotential")!;
+    const text = [p.description, ...p.highlights].join(" ");
+    expect(text).not.toMatch(/\b(built|implemented|developed|coded)\b/i);
+  });
+
   it("never describes ReFeed's built features as AI-driven", () => {
     const p = projects.find((p) => p.id === "refeed")!;
     const text = [p.description, ...p.highlights].join(" ");
@@ -149,7 +156,7 @@ describe("profile", () => {
 
   it("produces the agreed stats line", () => {
     expect(getStats(projects, achievements, profile.cgpa)).toEqual([
-      { value: "5", label: "Projects" },
+      { value: "6", label: "Projects" },
       { value: "6", label: "Certifications" },
       { value: "3.94", label: "CGPA" },
     ]);
