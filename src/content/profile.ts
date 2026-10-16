@@ -5,7 +5,7 @@ export const profile: Profile = {
   fullName: "Ammar Firdaus bin Nurul Hisyam",
   handle: "@ammfirdaus",
   greetings: ["Hi, I'm Ammar.", "Welcome to my portfolio.", "Let's connect & build together."],
-  bio: "Software Engineer & AI Enthusiast",
+  bio: "Software Developer | Applied AI/ML",
   about:
     "Final-year Software Engineering student with hands-on experience building responsive web applications using React, Next.js, TypeScript and PostgreSQL. Experienced in UI development, Agile/Scrum delivery and software testing, with a foundation in machine learning using Python (pandas, scikit-learn). AWS-certified in Cloud, Machine Learning and Generative AI foundations.",
   cgpa: "3.94",

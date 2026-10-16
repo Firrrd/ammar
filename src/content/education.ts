@@ -9,7 +9,10 @@ export const education: Education[] = [
     programme: "Bachelor of Software Engineering with Honours",
     period: "2023 – present",
     location: "Serdang, Selangor",
-    notes: ["Current CGPA: 3.94"],
+    notes: [
+      "Current CGPA: 3.94",
+      "Vice Chancellor's Award (Semester 6) and Dean's List in Semesters 1 to 5",
+    ],
   },
   {
     id: "uitm",

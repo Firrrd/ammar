@@ -33,9 +33,9 @@ describe("projects", () => {
     expectUnique(projects.map((p) => p.id));
   });
 
-  it("marks only Stella_studybuddy as in progress", () => {
+  it("marks every project as completed", () => {
     const inProgress = projects.filter((p) => p.status === "in-progress");
-    expect(inProgress.map((p) => p.id)).toEqual(["stella-studybuddy"]);
+    expect(inProgress.map((p) => p.id)).toEqual([]);
   });
 
   it("features exactly one project, Stella_studybuddy", () => {
@@ -109,9 +109,16 @@ describe("projects", () => {
 });
 
 describe("achievements", () => {
-  it("has six certifications and one award", () => {
+  it("has six certifications and seven awards", () => {
     expect(achievements.filter((a) => a.type === "Certification")).toHaveLength(6);
-    expect(achievements.filter((a) => a.type === "Award")).toHaveLength(1);
+    expect(achievements.filter((a) => a.type === "Award")).toHaveLength(7);
+  });
+
+  // CV ver 4: "1 Vice Chancellor's Award, 5 Dean's List".
+  it("lists one Vice Chancellor's Award and five Dean's List awards from UPM", () => {
+    const upm = achievements.filter((a) => a.issuer === "Universiti Putra Malaysia");
+    expect(upm.filter((a) => a.title.startsWith("Vice Chancellor's Award"))).toHaveLength(1);
+    expect(upm.filter((a) => a.title.startsWith("Dean's List"))).toHaveLength(5);
   });
 
   it("has unique ids", () => {
