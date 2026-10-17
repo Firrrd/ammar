@@ -121,6 +121,13 @@ describe("achievements", () => {
     expect(upm.filter((a) => a.title.startsWith("Dean's List"))).toHaveLength(5);
   });
 
+  it("links every UPM award to its redacted result slip in public/awards/", () => {
+    for (const a of achievements.filter((a) => a.issuer === "Universiti Putra Malaysia")) {
+      expect(a.url, a.id).toMatch(/^\/awards\/sem-[1-6]\.pdf$/);
+      expect(existsSync(`public${a.url}`), a.url).toBe(true);
+    }
+  });
+
   it("has unique ids", () => {
     expectUnique(achievements.map((a) => a.id));
   });

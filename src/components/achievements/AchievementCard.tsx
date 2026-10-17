@@ -49,7 +49,7 @@ export function AchievementCard({ achievement }: { achievement: Achievement }) {
 
   const layout = "flex h-full flex-col gap-2 p-4";
 
-  // With a credential, the whole card is the link. Without one (the award),
+  // With a credential, the whole card is the link. Without one (the UiTM award),
   // it is a plain card with no hover effect, so it does not look clickable.
   if (achievement.url) {
     return (

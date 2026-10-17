@@ -1,7 +1,29 @@
 import type { Achievement } from "@/types/content";
 
-/** Newest first. */
+/**
+ * Newest first. UPM awards are dated by the day the semester's result was
+ * announced, and link to that result slip in public/awards/, with the matric
+ * number, IC number and street address redacted.
+ */
 export const achievements: Achievement[] = [
+  {
+    id: "upm-vice-chancellors-award",
+    title: "Vice Chancellor's Award, Semester 6",
+    type: "Award",
+    issuer: "Universiti Putra Malaysia",
+    date: "2026-09",
+    skills: [],
+    url: "/awards/sem-6.pdf",
+  },
+  {
+    id: "upm-deans-list-sem-5",
+    title: "Dean's List, Semester 5",
+    type: "Award",
+    issuer: "Universiti Putra Malaysia",
+    date: "2026-03",
+    skills: [],
+    url: "/awards/sem-5.pdf",
+  },
   {
     id: "aws-ml-foundations",
     title: "AWS Academy Graduate – Machine Learning Foundations",
@@ -36,20 +58,22 @@ export const achievements: Achievement[] = [
     url: "https://www.credly.com/badges/e75da7f9-5eea-4ff6-9966-8701149b219f/public_url",
   },
   {
-    id: "upm-vice-chancellors-award",
-    title: "Vice Chancellor's Award, Semester 6",
+    id: "upm-deans-list-sem-4",
+    title: "Dean's List, Semester 4",
     type: "Award",
     issuer: "Universiti Putra Malaysia",
-    date: "2026",
+    date: "2025-09",
     skills: [],
+    url: "/awards/sem-4.pdf",
   },
   {
-    id: "upm-deans-list-sem-5",
-    title: "Dean's List, Semester 5",
+    id: "upm-deans-list-sem-3",
+    title: "Dean's List, Semester 3",
     type: "Award",
     issuer: "Universiti Putra Malaysia",
-    date: "2026",
+    date: "2025-03",
     skills: [],
+    url: "/awards/sem-3.pdf",
   },
   {
     id: "icdl-teamwork",
@@ -79,36 +103,22 @@ export const achievements: Achievement[] = [
     url: "https://profile.icdlasia.org/1fcd6409-4e12-4031-906a-ea25dec54b1c",
   },
   {
-    id: "upm-deans-list-sem-4",
-    title: "Dean's List, Semester 4",
-    type: "Award",
-    issuer: "Universiti Putra Malaysia",
-    date: "2025",
-    skills: [],
-  },
-  {
-    id: "upm-deans-list-sem-3",
-    title: "Dean's List, Semester 3",
-    type: "Award",
-    issuer: "Universiti Putra Malaysia",
-    date: "2025",
-    skills: [],
-  },
-  {
     id: "upm-deans-list-sem-2",
     title: "Dean's List, Semester 2",
     type: "Award",
     issuer: "Universiti Putra Malaysia",
-    date: "2024",
+    date: "2024-09",
     skills: [],
+    url: "/awards/sem-2.pdf",
   },
   {
     id: "upm-deans-list-sem-1",
     title: "Dean's List, Semester 1",
     type: "Award",
     issuer: "Universiti Putra Malaysia",
-    date: "2024",
+    date: "2024-03",
     skills: [],
+    url: "/awards/sem-1.pdf",
   },
   {
     id: "uitm-top-10",
